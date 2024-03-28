@@ -1,4 +1,3 @@
-
 /**
  * T here is a generic type.  It can stand in for any kind of object.
  * Here, our objective is to have an object that can store any object in its 'data' field, and then retrieve it.
@@ -19,12 +18,23 @@ public class GenericExercise<T> {
      * @param in an Object that will be of type T at runtime.
      */
     public void loadGenericItem(T in){
-
+        this.data = in;
     }
     /**
      * @return T data. The type of Data will again be set when the GenericExercise object is created (at runtime).
      */
     public T returnGenericItem(){
-        return null;
+        return this.data;
+    }
+    public static void main(String[] args) {
+        GenericExercise<String> stringGenericExercise = new GenericExercise<>();
+        stringGenericExercise.loadGenericItem("Hello");
+        String str = stringGenericExercise.returnGenericItem();
+        System.out.println("String value: " + str);
+
+        GenericExercise<Integer> integerGenericExercise = new GenericExercise<>();
+        integerGenericExercise.loadGenericItem(123);
+        int num = integerGenericExercise.returnGenericItem();
+        System.out.println("Integer value: "+num);
     }
 }
